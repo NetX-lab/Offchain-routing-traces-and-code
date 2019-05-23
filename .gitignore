@@ -39,3 +39,6 @@ sim/traces/ripple/transactions-in-USD-jan-2013-aug-2016.txt
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+testbed/src/server/server
+testbed/src/parse_graph/parse_graph
