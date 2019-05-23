@@ -1,4 +1,8 @@
 # Compiled source #
+# large files #
+##################
+sim/traces/ripple/transactions-in-USD-jan-2013-aug-2016.txt
+
 ###################
 *.com
 *.class

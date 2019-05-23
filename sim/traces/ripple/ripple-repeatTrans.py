@@ -45,7 +45,7 @@ def main():
   	dstNodes = []
   	payments = []
   	microPayments = []
-	with open('../data/ripple/ripple_val.csv', 'r') as f: 
+	with open('ripple_val.csv', 'r') as f: 
 		csv_reader = csv.reader(f, delimiter=',')
 		for row in csv_reader:
 			# srcNodes.append(int(row[0]))
@@ -106,7 +106,6 @@ def main():
 
 	print 'number of senders transacting with more than 5 different receivers', len(percentageTransSet)
 
-	# print len(percentageTransSet)
 	sorted_var = np.sort(percentageTransSet)
 	xlabelname = 'Percentage of transactions for top 5 frequent receivers'
 	ylabelname = 'CDF'

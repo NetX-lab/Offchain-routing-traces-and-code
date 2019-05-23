@@ -8,7 +8,7 @@ from scipy import stats
 # return graph 
 def setup(): 
 	nodes = []
-	with open('data/allnodes.txt', 'r') as f: 
+	with open('traces/lightning/allnodes.txt', 'r') as f: 
 		f.readline()
 		for line in f: 
 			if 'nodeid' in line: 
@@ -20,7 +20,7 @@ def setup():
 	# edges = []
 	G = nx.DiGraph()
 	listC = []
-	with open('data/channels.txt', 'r') as f: 
+	with open('traces/lightning/channels.txt', 'r') as f: 
 		f.readline()
 		for line in f: 
 			if 'source' in line: 
@@ -70,7 +70,7 @@ def setup():
 
 	trans = []
 	# count = 0
-	with open('data/BitcoinVal.txt', 'r') as f: 
+	with open('traces/lightning/BitcoinVal.txt', 'r') as f: 
 		f.readline()
 		for line in f: 
 			# count += 1
@@ -86,7 +86,7 @@ def setup():
 # we use src-dst pair from ripple trace
 def get_stpair (num_nodes):
 	st = []
-  	with open('data/ripple_val.csv', 'r') as f: 
+  	with open('traces/ripple/ripple_val.csv', 'r') as f: 
 		csv_reader = csv.reader(f, delimiter=',')
 		for row in csv_reader:
 			if float(row[2]) > 0:

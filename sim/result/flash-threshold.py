@@ -14,7 +14,7 @@ ratios = []
 messages = []
 
 
-with open(trace+'-threshold.txt') as f:
+with open('rawdata/'+trace+'-threshold.txt') as f:
 	metrics =[volumes, ratios, messages]
 
 	cnt_line = 0
@@ -100,7 +100,7 @@ ax = plt.gca()
 ax.yaxis.get_major_formatter().set_powerlimits((0,1)) 
 
 savename = trace+'-flash-threshold.pdf'
-savefig(savename, format='pdf')
+savefig('figs/'+savename, format='pdf')
 
 
 

@@ -86,10 +86,6 @@ def max_flow_solver(G, cur_payment, d, paths):
 	for e in und_G.edges(): 
 		forwarding_edges.append((e[0], e[1], G[e[0]][e[1]]["capacity"]))
 		reverse_edges.append((e[1], e[0], G[e[1]][e[0]]["capacity"]))
-
-	
-	# demands
-	# d = cur_payment[2]
 	
 	if len(paths) < 2:
 		path = paths[0]
@@ -160,55 +156,7 @@ def max_flow_solver(G, cur_payment, d, paths):
 	end = time.time()
 	print 'time', end-start
 
-	# updatedCap1 = Cap1 - np.matmul(coe1, x.value) + np.matmul(coe2, x.value)
-	# updatedCap2 = Cap2 - np.matmul(coe2, x.value) + np.matmul(coe1, x.value) 
-	# index_e1 = 0
-	# index_e2 = 0
-	# for e in forwarding_edges: 
-	# 	G[e[0]][e[1]]["capacity"] = updatedCap1[index_e1]
-	# 	index_e1 = index_e1+1
-	# for e in reverse_edges: 
-	# 	G[e[0]][e[1]]["capacity"] = updatedCap2[index_e2]
-	# 	index_e2 = index_e2+1
-
 	return x.value
-
-# def routing(G, payment):
-# 	num_paths = 1 # the number of paths we are going to probe
-# 	totalThroughput = 0
-# 	# sampled_paths = []
-
-# 	src = payment[0]
-# 	dst = payment[1]
-# 	d = payment[2]
-
-# 	path_set = find_paths(G, src, dst, num_paths)
-
-# 	throughput = 0 
-# 	probing_messages = 0
-# 	max_path_length = 0
-
-# 	original_edge = []
-
-# 	while len(path_set) > 0 and d > throughput:
-# 		# update local graph 
-# 		for e in G.edges(): 
-# 			original_edge.append((e[0], e[1], G[e[0]][e[1]]['capacity']))
-# 			original_edge.append((e[1], e[0], G[e[1]][e[0]]['capacity']))
-		
-# 		throughput += max_flow_solver(G, payment, d-throughput, path_set)
-
-# 		path_set = find_paths(G, src, dst, num_paths)
-
-# 	if throughput < payment[2]-1e-6:
-# 		# reverse capacity
-# 		for e in original_edge: 
-# 			G[e[0]][e[1]]['capacity'] = e[2]
-# 		# print 'fail', payment, throughput 
-# 		return 0, probing_messages, 0
-# 	else: 
-# 		# print 'success', payment, throughput
-# 		return payment[2], probing_messages, max_path_length 
 
 def routing(G, payment):
 	src = payment[0]
@@ -250,6 +198,6 @@ def routing(G, payment):
 					G[path[i+1]][path[i]]["capacity"] += flows_to_send[index_p]
 		return payment[2], probing_messages, max_path_length 
 	else: 
-		# print 'fail', payment, sum(flows_to_send), path_set
+		# fail
 		return 0, probing_messages, 0
 

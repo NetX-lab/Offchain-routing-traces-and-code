@@ -18,7 +18,7 @@ msgs = []
 schemes = ['sp', 'speedymurmurs', 'waterfilling', 'flash']
 cnt_scheme = 0
 for scheme in schemes: 
-	with open(trace+'-'+scheme+'-'+str(num_flows)+'.txt') as f:
+	with open('rawdata/'+trace+'-'+scheme+'-'+str(num_flows)+'.txt') as f:
 		volume = []
 		ratio = []
 		msg = []
@@ -131,7 +131,7 @@ if typ == 'ratio':
 xlabel('Capacity Scale Factor')
 
 savename = trace+'-'+'general-scale-%s.pdf' % typ
-savefig(savename, format='pdf')
+savefig('figs/'+savename, format='pdf')
 
 
 

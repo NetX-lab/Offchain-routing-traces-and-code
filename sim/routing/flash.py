@@ -45,8 +45,6 @@ def routing(G, cur_payments, threshold, num_max_cache):
     if table.destinations: 
       num_active += 1 # number of senders who sent payments 
     for i in range(len(table.destinations)):
-      # if table.paths: 
-      #   print num_max_cache, table.paths
       num_entry += len(table.paths[i])
 
   # if there is no micropayments 
@@ -56,30 +54,3 @@ def routing(G, cur_payments, threshold, num_max_cache):
     num_micro = 1
 
   return throughput, transaction_fees/throughput, num_delivered, total_probing_messages, total_max_path_length, 1.0*cache_hit/num_micro, 1.0*num_entry/num_active, micro_throughput, micro_probing_messages
-
-# G = nx.DiGraph()
-# G.add_edge(0, 1, capacity = 10)
-# G.add_edge(1, 0, capacity = 10)
-# G.add_edge(0, 2, capacity = 10)
-# G.add_edge(2, 0, capacity = 10)
-# G.add_edge(0, 7, capacity = 10)
-# G.add_edge(7, 0, capacity = 10)
-# G.add_edge(1, 3, capacity = 10)
-# G.add_edge(3, 1, capacity = 10)
-# G.add_edge(1, 4, capacity = 10)
-# G.add_edge(4, 1, capacity = 10)
-# G.add_edge(2, 5, capacity = 10)
-# G.add_edge(5, 2, capacity = 10)
-# G.add_edge(3, 6, capacity = 10)
-# G.add_edge(6, 3, capacity = 10)
-# G.add_edge(4, 6, capacity = 10)
-# G.add_edge(6, 4, capacity = 10)
-# G.add_edge(5, 6, capacity = 10)
-# G.add_edge(6, 5, capacity = 10)
-
-# payments = []
-# payments.append((6, 0, 6, 1, 0))
-# payments.append((0, 6, 21, 1, 0))
-# payments.append((0, 6, 26, 1, 0))
-
-# print routing(G, payments,4)

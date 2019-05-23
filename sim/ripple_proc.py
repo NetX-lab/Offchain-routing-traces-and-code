@@ -6,7 +6,7 @@ from scipy import stats
 
 def find_cycles(): 
 	n = 0
-	with open('data/ripple_val.csv', 'r') as f: 
+	with open('traces/ripple/ripple_val.csv', 'r') as f: 
 		csv_reader = csv.reader(f, delimiter=',')
 		for row in csv_reader:
 			G.add_edge(int(row[0]), int(row[1]))
@@ -19,7 +19,7 @@ def find_cycles():
 def setup(): 
 	GG = nx.DiGraph()
 	# with open('data/ripple-lcc.graph_CREDIT_LINKS', 'r') as f: 
-	with open('data/jan2013-lcc-t0.graph_CREDIT_LINKS', 'r') as f: 
+	with open('traces/ripple/jan2013-lcc-t0.graph_CREDIT_LINKS', 'r') as f: 
 		for line in f: 
 			source = int(line.split()[0])
 			destination = int(line.split()[1])
@@ -72,7 +72,7 @@ def setup():
 
 
   	trans = []
-  	with open('data/ripple_val.csv', 'r') as f: 
+  	with open('traces/ripple/ripple_val.csv', 'r') as f: 
 		csv_reader = csv.reader(f, delimiter=',')
 		for row in csv_reader:
 			if float(row[2]) > 0:

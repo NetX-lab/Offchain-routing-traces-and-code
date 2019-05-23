@@ -39,7 +39,14 @@ N = 4
 ind = np.arange(N)    # the x locations for the groups
 width = 0.1      # the width of the bars: can also be len(x) sequence
 
+# msg = [msgs[0], msgs[1], msgs[2], msgs[3], msgs[4]]
 schemes = ('0', '2', '4', '6', '8')
+
+# rects1 = ax.bar(0.12, msgs[0], width, facecolor = 'orangered', edgecolor = 'orangered')
+# rects2 = ax.bar(0.12+2*width, msgs[1], width, facecolor = 'dodgerblue', edgecolor = 'dodgerblue')
+# rects3 = ax.bar(0.12+2*width+2*width, msgs[2], width, facecolor = 'dodgerblue', edgecolor = 'dodgerblue')
+# rects4 = ax.bar(0.12+2*width+2*width+2*width, msgs[3], width, facecolor = 'dodgerblue', edgecolor = 'dodgerblue')
+# rects5 = ax.bar(0.12+2*width+2*width+2*width+2*width, msgs[3], width, facecolor = 'dodgerblue', edgecolor = 'dodgerblue')
 
 rects1 = ax.bar(0.12, volumes[0], width, facecolor = 'orangered', edgecolor = 'orangered')
 rects2 = ax.bar(0.12+2*width, volumes[1], width, facecolor = 'dodgerblue', edgecolor = 'dodgerblue')

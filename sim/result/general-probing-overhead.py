@@ -59,7 +59,7 @@ ax.yaxis.get_major_formatter().set_powerlimits((0,1))
 xlabel('Schemes', fontsize = 24)
 ylabel('Number of Probing Messages', fontsize = 24)
 
-plt.savefig(trace+'-probing-overhead.pdf', format='pdf')
+plt.savefig('figs/'+trace+'-probing-overhead.pdf', format='pdf')
 
 
 

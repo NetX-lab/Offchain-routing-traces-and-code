@@ -48,31 +48,3 @@ def routing(G, cur_payments):
       transaction_fees += fee
   return throughput, transaction_fees/throughput, num_delivered, total_probing_messages, total_max_path_length
 
-# G = nx.DiGraph()
-# G.add_edge(0, 1, capacity = 10)
-# G.add_edge(1, 0, capacity = 10)
-# G.add_edge(0, 2, capacity = 10)
-# G.add_edge(2, 0, capacity = 10)
-# G.add_edge(0, 7, capacity = 10)
-# G.add_edge(7, 0, capacity = 10)
-# G.add_edge(1, 3, capacity = 10)
-# G.add_edge(3, 1, capacity = 10)
-# G.add_edge(1, 4, capacity = 10)
-# G.add_edge(4, 1, capacity = 10)
-# G.add_edge(2, 5, capacity = 10)
-# G.add_edge(5, 2, capacity = 10)
-# G.add_edge(3, 6, capacity = 10)
-# G.add_edge(6, 3, capacity = 10)
-# G.add_edge(4, 6, capacity = 10)
-# G.add_edge(6, 4, capacity = 10)
-# G.add_edge(5, 6, capacity = 10)
-# G.add_edge(6, 5, capacity = 10)
-
-# payments = []
-# payments.append((0, 6, 21, 1, 0))
-# payments.append((6, 0, 6, 1, 0))
-# payments.append((0, 6, 16, 1, 0))
-
-# print routing(G, payments)
-
-

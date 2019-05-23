@@ -6,9 +6,6 @@ matplotlib.rcParams['axes.linewidth'] = 0.75
 trace = sys.argv[1]
 typ = sys.argv[2]
 
-
-# scale_factor = ['1', '20', '40', '60', '80', '100']
-
 volumes = []
 ratios = []
 msgs = []
@@ -23,7 +20,7 @@ for scheme in schemes:
 	ratio = []
 	msg = []
 	for num_flows in num_flows_list: 
-		with open(trace+'-'+scheme+'-'+str(num_flows)+'.txt') as f:
+		with open('rawdata/'+trace+'-'+scheme+'-'+str(num_flows)+'.txt') as f:
 			metrics =[volume, ratio, msg]
 
 			cnt_line = 0
@@ -127,6 +124,6 @@ if typ == 'ratio':
 xlabel('Number of transactions')
 
 savename = trace+'-'+'general-trans-%s.pdf' % typ
-savefig(savename, format='pdf')
+savefig('figs/'+savename, format='pdf')
 
 

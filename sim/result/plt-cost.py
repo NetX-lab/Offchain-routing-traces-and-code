@@ -68,7 +68,7 @@ if tr == 'lightning':
 # ax.autoscale_view()
 
 output_name='cost-' + tr + '.eps'
-plt.savefig(output_name, format='eps')
+plt.savefig('figs/'+output_name, format='eps')
 
 
 
