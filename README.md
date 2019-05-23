@@ -14,5 +14,5 @@ Flash is a dynamic routing solution for offchain networks. It compares with a se
 
 ## Getting Started 
 
-### Testbed: check README.md in [testbed](testbed)
-### Simulation: check README.md in [sim](sim)
+* Testbed: check README.md in [testbed](testbed)
+* Simulation: check README.md in [sim](sim)
