@@ -1,6 +1,6 @@
 # About the repo
 
-The repo contains topology information and transaction traces of some offchain networks we collect. They are used to evaluate Flash[https://arxiv.org/abs/1902.05260], a dynamic routing solution we develop for offchain networks. 
+The repo contains topology information and transaction traces of some offchain networks we collect. They are used to evaluate (Flash)[https://arxiv.org/abs/1902.05260], a dynamic routing solution we develop for offchain networks. 
 
 The repo also contains our code for both simulation and testbed implementation of Flash, as well as a set of state-of-the-art routing algorithms.
 
