@@ -4,6 +4,4 @@
 
 - Due to the limitation of Git repo size, we only put data of 10,000 transactions to BitcoinVal.txt. The raw trace is uploaded to hw3
 
--  
-
   
