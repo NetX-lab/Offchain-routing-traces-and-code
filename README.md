@@ -8,15 +8,15 @@ We hope they would be useful for people who work on offchain networks.
 
 ## About the traces
 
-The traces are in [here](sim/traces)
+The traces are in [sim/traces](sim/traces). It has two parts for both networks:
 
-## Topology
+### Topology
 * Ripple Network (1,870 nodes and 17,416 edges) 
 * Lightning Network (2,511 nodes and 36,016 edges)
 
-## Transaction Datasets
+### Transaction Datasets
 * 2.6 million transactions in Ripple (January 2013 to November 2016)
-* 103 million transactions (January 2009 to October 2018)
+* 103 million transactions from Bitcoin for Lightning (January 2009 to October 2018)
 
 ## Getting Started 
 
