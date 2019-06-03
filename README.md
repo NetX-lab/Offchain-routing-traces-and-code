@@ -18,3 +18,7 @@ We hope they would be useful for people who work on offchain networks.
 
 * Testbed code: check README.md in [testbed](testbed)
 * Simulation code: check README.md in [sim](sim)
+
+## Reference
+
+Flash: Efficient Dynamic Routing for Offchain Networks. Peng Wang, Hong Xu, Xin Jin, Tao Wang. [https://arxiv.org/abs/1902.05260](https://arxiv.org/abs/1902.05260). 2019
