@@ -21,7 +21,7 @@ def cdf_random_number(CDF, prob):
 
 def main():
 	# parameters 
-        num_node = 50
+        num_node = 10
 	nflows = 10000
 	percentage = 90
 	random.seed(2)
