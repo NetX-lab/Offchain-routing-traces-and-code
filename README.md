@@ -1,4 +1,4 @@
-# About the repo
+# Traces and code for offchain routing
 
 The repo contains the topology and transaction traces of some offchain networks we collect. They are used to evaluate [Flash](https://arxiv.org/abs/1902.05260), a dynamic routing solution we develop for offchain networks. 
 
