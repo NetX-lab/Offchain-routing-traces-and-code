@@ -15,13 +15,13 @@ import lightning_proc
 from scipy import stats
 
 def get_threshold(trace, trans, percentage):
-	if trace == 'ripple': 
- 		sorted_trans = sorted(trans, key=lambda x: x[2])
- 		threshold = sorted_trans[int(1.0*percentage/100*(len(sorted_trans)-1))]
- 		return threshold[2]
- 	else: 
- 		sorted_trans = sorted(trans)
- 		threshold = sorted_trans[int(1.0*percentage/100*(len(sorted_trans)-1))]
+	if trace == 'ripple':
+		sorted_trans = sorted(trans, key=lambda x: x[2])
+		threshold = sorted_trans[int(1.0*percentage/100*(len(sorted_trans)-1))]
+		return threshold[2]
+	else:
+		sorted_trans = sorted(trans)
+		threshold = sorted_trans[int(1.0*percentage/100*(len(sorted_trans)-1))]
 		return threshold
 
 # micro benchmark 
@@ -45,7 +45,7 @@ def run_flash_thresh(trace, nflows, nruns, scale_factor, percentage_list, num_ma
 		G = scale_topo_cap(G_ori, scale_factor)
 
 		threshold = get_threshold(trace, trans, percentage)
-		print 'threshold', threshold
+		print('threshold', threshold)
 
 		volume_list = []
 		ratio_list = []
@@ -53,7 +53,7 @@ def run_flash_thresh(trace, nflows, nruns, scale_factor, percentage_list, num_ma
 
 		# payments to send
 		for seed in range(nruns):
-			print 'Start run simulation. Run', seed
+			print('Start run simulation. Run', seed)
 			payments = []
 			if trace == 'ripple': 
 				payments = ripple_proc.generate_payments(seed, nflows, trans, G)
@@ -70,13 +70,13 @@ def run_flash_thresh(trace, nflows, nruns, scale_factor, percentage_list, num_ma
 		flash_msg.append(sum(msg_list)/nruns)
 
 	with open(trace+'-'+'threshold.txt', 'w') as filehandle: 
-		for element in flash_volume: 
+		for element in flash_volume:
 			filehandle.write('%s ' % element)
 		filehandle.write('\n')
-		for element in flash_ratio: 
+		for element in flash_ratio:
 			filehandle.write('%s ' % element)
 		filehandle.write('\n')
-		for element in flash_msg: 
+		for element in flash_msg:
 			filehandle.write('%s ' % element)
 
 def run_flash_cache(trace, nflows, nruns, scale_factor, percentage, cache_list):
@@ -89,11 +89,11 @@ def run_flash_cache(trace, nflows, nruns, scale_factor, percentage, cache_list):
 	if (trace == 'lightning'):
 		G_ori, trans = lightning_proc.setup()
 
-	flash_micro_volume = []	
+	flash_micro_volume = []
 	flash_micro_msg = []
-	flash_ratio = []	
+	flash_ratio = []
 	flash_hit = []
-	flash_table = []	
+	flash_table = []
 			
 	for num_max_cache in cache_list: 
 		G = scale_topo_cap(G_ori, scale_factor)
@@ -107,7 +107,7 @@ def run_flash_cache(trace, nflows, nruns, scale_factor, percentage, cache_list):
 
 		# payments to send
 		for seed in range(nruns):
-			print 'Start run simulation. Run', seed
+			print('Start run simulation. Run', seed)
 			payments = []
 			if trace == 'ripple': 
 				payments = ripple_proc.generate_payments(seed, nflows, trans, G)
@@ -145,13 +145,13 @@ def run_flash_cache(trace, nflows, nruns, scale_factor, percentage, cache_list):
 			filehandle.write('%s ' % element)
 
 def scale_topo_cap(G_ori, scale_factor):
-	G = nx.DiGraph()	
-  	for e in G_ori.edges(): 
-  		G.add_edge(e[0], e[1], capacity = G_ori[e[0]][e[1]]['capacity']*scale_factor, cost = G_ori[e[0]][e[1]]['cost'])
-    	
+	G = nx.DiGraph()
+	for e in G_ori.edges():
+		G.add_edge(e[0], e[1], capacity = G_ori[e[0]][e[1]]['capacity']*scale_factor, cost = G_ori[e[0]][e[1]]['cost'])
+
 		if (e[1], e[0]) not in G_ori.edges():
-  			G.add_edge(e[1], e[0], capacity = G_ori[e[0]][e[1]]['capacity']*scale_factor, cost = G_ori[e[0]][e[1]]['cost'])
-  		else: 
+			G.add_edge(e[1], e[0], capacity = G_ori[e[0]][e[1]]['capacity']*scale_factor, cost = G_ori[e[0]][e[1]]['cost'])
+		else:
 			G.add_edge(e[1], e[0], capacity = G_ori[e[1]][e[0]]['capacity']*scale_factor, cost = G_ori[e[1]][e[0]]['cost'])
 
 	return G
@@ -186,7 +186,7 @@ def run_general(scheme, trace, nflows, nruns, nlandmarks, scale_list, percentage
 		# payments to send
 		for seed in range(nruns):
 			random.seed(seed)
-			print 'Start run simulation. Run', seed, ' trace ', trace, ' scheme ', scheme
+			print('Start run simulation. Run', seed, ' trace ', trace, ' scheme ', scheme)
 
 			payments = []
 			if trace == 'ripple': 
@@ -203,7 +203,7 @@ def run_general(scheme, trace, nflows, nruns, nlandmarks, scale_list, percentage
 			elif scheme == 'flash': 
 				volume, cost, num_delivered, total_probing_messages, total_max_path_length, hit_ratio, table_size, micro_volume, micro_msg  = flash.routing(G.copy(), payments, threshold, num_max_cache)
 			else: 
-				print 'unknown routing'
+				print('unknown routing')
 
 			volume_list.append(1.0*volume)
 			ratio_list.append(1.0*num_delivered/nflows)
@@ -220,7 +220,7 @@ def run_general(scheme, trace, nflows, nruns, nlandmarks, scale_list, percentage
 		if scheme == 'flash': 
 			res_hit.append(sum(hit_list)/nruns)
 
-		print scheme, res_cost
+		print(scheme, res_cost)
 
 	with open(trace+'-'+scheme+'-'+str(nflows)+'.txt', 'w') as filehandle: 
 		for element in res_volume: 

@@ -35,38 +35,38 @@ def setup():
 				listC.append(float(capacity))
 				G.add_edge(int(nodes.index(source)), int(nodes.index(destination)), capacity = float(capacity), cost = random.random()*10)
 
- 	while True: 
+	while True: 
 		nodes_to_remove = []
-	  	for node_index in list(G.nodes()):
-	  		if len(list(G.neighbors(node_index))) < 2:
-	  			nodes_to_remove.append(node_index)
+		for node_index in list(G.nodes()):
+			if len(list(G.neighbors(node_index))) < 2:
+				nodes_to_remove.append(node_index)
 
-	  	if len(nodes_to_remove) == 0: 
-	  		break 
+		if len(nodes_to_remove) == 0: 
+			break 
 
-  		for node_index in nodes_to_remove:
-  			G.remove_node(node_index)
+		for node_index in nodes_to_remove:
+			G.remove_node(node_index)
 
 
-  	mapping = dict(zip(G.nodes(), range(0, len(G))))
+	mapping = dict(list(zip(G.nodes(), list(range(0, len(G))))))
 	G = nx.relabel_nodes(G, mapping, copy=False)
 
 	# transaction fees for 10% edges are especially high 
 	random_edges = []
-	random_edges = random.sample(xrange(G.number_of_edges()), int(G.number_of_edges()*0.1))
+	random_edges = random.sample(range(G.number_of_edges()), int(G.number_of_edges()*0.1))
 	i = 0
 	for e in G.edges():
 		if i in random_edges: 
 			G[e[0]][e[1]]['cost'] = G[e[0]][e[1]]['cost']*10 
 		i += 1
 
-  	print "number of nodes", len(G)
-  	print 'average channel cap', float(sum(listC))/len(listC)
-  	print 'num of edges', len(listC)
+	print("number of nodes", len(G))
+	print('average channel cap', float(sum(listC))/len(listC))
+	print('num of edges', len(listC))
 
 	sorted_var = np.sort(listC)
 
-	print 'medium channel capacity', stats.scoreatpercentile(sorted_var, 50)
+	print('medium channel capacity', stats.scoreatpercentile(sorted_var, 50))
 
 	trans = []
 	# count = 0
@@ -80,13 +80,13 @@ def setup():
 	# we randomly choose 1 million trans 
 	# trans = random.sample(trans, 1000000)
 
-	print 'num of transactions', len(trans)
-  	return G, trans
+	print('num of transactions', len(trans))
+	return G, trans
 
 # we use src-dst pair from ripple trace
 def get_stpair (num_nodes):
 	st = []
-  	with open('traces/ripple/ripple_val.csv', 'r') as f: 
+	with open('traces/ripple/ripple_val.csv', 'r') as f: 
 		csv_reader = csv.reader(f, delimiter=',')
 		for row in csv_reader:
 			if float(row[2]) > 0:
@@ -112,11 +112,11 @@ def generate_payments(seed, nflows, trans, G):
 		src = src_dst[index][0]
 		dst = src_dst[index][1]
 
-	 	if not nx.has_path(G, src, dst):
+		if not nx.has_path(G, src, dst):
 			continue
-	 	val = random.choice(trans)
- 		payments.append((src, dst, val, 1, 0))
- 		k += 1
+		val = random.choice(trans)
+		payments.append((src, dst, val, 1, 0))
+		k += 1
 
 	return payments
 

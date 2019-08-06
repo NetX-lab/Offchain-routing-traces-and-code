@@ -13,7 +13,7 @@ def find_cycles():
 			n += 1 
 			if n > 2000: 
 				break 
-	print 'cycles', list(nx.simple_cycles(G))
+	print('cycles', list(nx.simple_cycles(G)))
 
 # return graph 
 def setup(): 
@@ -30,49 +30,49 @@ def setup():
 
 	while True: 
 		nodes_to_remove = []
-	  	for node_index in list(GG.nodes()):
-	  		if len(list(GG.neighbors(node_index))) < 2:
-	  			nodes_to_remove.append(node_index)
+		for node_index in list(GG.nodes()):
+			if len(list(GG.neighbors(node_index))) < 2:
+				nodes_to_remove.append(node_index)
 
-	  	if len(nodes_to_remove) == 0: 
-	  		break 
+		if len(nodes_to_remove) == 0: 
+			break 
 
-	  	for node_index in nodes_to_remove:
-	  		GG.remove_node(node_index)
+		for node_index in nodes_to_remove:
+			GG.remove_node(node_index)
 
-   	node_list = list(GG.nodes())	
+	node_list = list(GG.nodes())	
 
-   	random.seed(2)
-  	# make the node index be continuous
-  	G = nx.DiGraph()	
-  	for e in GG.edges(): 
-  		G.add_edge(node_list.index(e[0]), node_list.index(e[1]), capacity = GG[e[0]][e[1]]['capacity'], cost = random.random()*10)
+	random.seed(2)
+	# make the node index be continuous
+	G = nx.DiGraph()	
+	for e in GG.edges(): 
+		G.add_edge(node_list.index(e[0]), node_list.index(e[1]), capacity = GG[e[0]][e[1]]['capacity'], cost = random.random()*10)
 		G.add_edge(node_list.index(e[1]), node_list.index(e[0]), capacity = GG[e[1]][e[0]]['capacity'], cost = random.random()*10)
 
 	# transaction fees for 10% edges are especially high 
 	random_edges = []
-	random_edges = random.sample(xrange(G.number_of_edges()), int(G.number_of_edges()*0.1))
+	random_edges = random.sample(range(G.number_of_edges()), int(G.number_of_edges()*0.1))
 	i = 0
 	for e in G.edges():
 		if i in random_edges: 
 			G[e[0]][e[1]]['cost'] = G[e[0]][e[1]]['cost']*10 
 		i += 1
 
-  	listC = []
-  	for e in G.edges(): 
-  		listC.append(G[e[0]][e[1]]['capacity'])
-  		listC.append(G[e[1]][e[0]]['capacity'])
+	listC = []
+	for e in G.edges(): 
+		listC.append(G[e[0]][e[1]]['capacity'])
+		listC.append(G[e[1]][e[0]]['capacity'])
 
-  	print "number of nodes", len(G)
-  	print 'average channel cap', float(sum(listC))/len(listC)
-  	print 'num of edges', len(listC)
+	print("number of nodes", len(G))
+	print('average channel cap', float(sum(listC))/len(listC))
+	print('num of edges', len(listC))
 	
 	sorted_var = np.sort(listC)
-	print 'medium capacity', stats.scoreatpercentile(sorted_var, 50)
+	print('medium capacity', stats.scoreatpercentile(sorted_var, 50))
 
 
-  	trans = []
-  	with open('traces/ripple/ripple_val.csv', 'r') as f: 
+	trans = []
+	with open('traces/ripple/ripple_val.csv', 'r') as f: 
 		csv_reader = csv.reader(f, delimiter=',')
 		for row in csv_reader:
 			if float(row[2]) > 0:
@@ -81,9 +81,9 @@ def setup():
 				if src == dst: 
 					continue
 				trans.append((int(src), int(dst), float(row[2])))	
-	print 'num of transactions', len(trans)
- 
-  	return G, trans
+	print('num of transactions', len(trans))
+
+	return G, trans
 
 def generate_payments(seed, nflows, trans, G):
 	random.seed(seed)

@@ -20,7 +20,7 @@ class RoutingTable:
   # add path towards to a given destination
   def add_path(self, dst, path):
     if dst not in self.destinations: 
-      print 'false xxxxxxx'
+      print('false xxxxxxx')
     else: 
       index = self.destinations.index(dst)
       self.paths[index].append(path)

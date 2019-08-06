@@ -42,3 +42,8 @@ Thumbs.db
 
 testbed/src/server/server
 testbed/src/parse_graph/parse_graph
+
+
+venv/
+__pycache__/
+*.py.bak

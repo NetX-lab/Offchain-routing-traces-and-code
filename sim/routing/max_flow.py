@@ -13,11 +13,11 @@ from scipy import stats
 import time
 import sys
 
-def OnPath(e, p): 
-  for i in range(len(p)-1):
-    if (e[0], e[1]) == tuple(p[i:i+2]):
-      return 1
-  return 0
+def OnPath(e, p):
+	for i in range(len(p)-1):
+		if (e[0], e[1]) == tuple(p[i:i+2]):
+			return 1
+	return 0
 
 # TODO: modify this one 
 def find_paths(G, src, dst): 
@@ -92,48 +92,48 @@ def max_flow_solver(G, cur_payment, d, paths):
 		path_cap = sys.maxsize
 		for i in range(len(path)-1):
 			path_cap = np.minimum(path_cap, G[path[i]][path[i+1]]["capacity"])
-        
-	        throughput = d if (path_cap > d) else path_cap
-       		for i in range(len(path)-1):
-        		G[path[i]][path[i+1]]["capacity"] -= throughput
-        		G[path[i+1]][path[i]]["capacity"] += throughput
-        		fee += G[path[i]][path[i+1]]["cost"]*throughput
 
-        	return throughput, fee
+			throughput = d if (path_cap > d) else path_cap
+			for i in range(len(path)-1):
+				G[path[i]][path[i+1]]["capacity"] -= throughput
+				G[path[i+1]][path[i]]["capacity"] += throughput
+				fee += G[path[i]][path[i+1]]["cost"]*throughput
+
+			return throughput, fee
 
 	# edge-path coefficient 
 	coe1 = np.zeros((len(forwarding_edges), len(paths)))
 	coe2 = np.zeros((len(reverse_edges), len(paths)))
 
 	for index_p in range(len(paths)):
-	  p = paths[index_p]
-	  index_e1 = 0
-	  index_e2 = 0
+		p = paths[index_p]
+		index_e1 = 0
+		index_e2 = 0
 
-	  for e in forwarding_edges: 
-	    coe1[index_e1][index_p] = OnPath(e, p)
-	    index_e1 = index_e1+1
+		for e in forwarding_edges: 
+			coe1[index_e1][index_p] = OnPath(e, p)
+			index_e1 = index_e1+1
 
-	  for e in reverse_edges:
-	    coe2[index_e2][index_p] = OnPath(e, p)
-	    index_e2 = index_e2+1
+		for e in reverse_edges:
+			coe2[index_e2][index_p] = OnPath(e, p)
+			index_e2 = index_e2+1
 
 	# cost coefficient related to transaction amount 
 	cost_coe1 = np.zeros((len(forwarding_edges), len(paths)))
 	cost_coe2 = np.zeros((len(reverse_edges), len(paths)))
 
 	for index_p in range(len(paths)):
-	  p = paths[index_p]
-	  index_e1 = 0
-	  index_e2 = 0
+		p = paths[index_p]
+		index_e1 = 0
+		index_e2 = 0
 
-	  for e in forwarding_edges: 
-	    cost_coe1[index_e1][index_p] = OnPath(e, p)*G[e[0]][e[1]]['cost']
-	    index_e1 = index_e1+1
+		for e in forwarding_edges: 
+			cost_coe1[index_e1][index_p] = OnPath(e, p)*G[e[0]][e[1]]['cost']
+			index_e1 = index_e1+1
 
-	  for e in reverse_edges:
-	    cost_coe2[index_e2][index_p] = OnPath(e, p)*G[e[0]][e[1]]['cost']
-	    index_e2 = index_e2+1
+		for e in reverse_edges:
+			cost_coe2[index_e2][index_p] = OnPath(e, p)*G[e[0]][e[1]]['cost']
+			index_e2 = index_e2+1
 
 	# capacity 
 	Cap1 = np.zeros(len(forwarding_edges))
@@ -196,7 +196,7 @@ def routing(G, payment):
 			path = path_set[index_p]
 			for i in range(len(path)-1):
 				if (G[path[i]][path[i+1]]["capacity"] < flows_to_send[index_p]-1e-6):
-					print path[i], path[i+1], G[path[i]][path[i+1]]["capacity"], flows_to_send[index_p], "fail XXXXXXXX"
+					print(path[i], path[i+1], G[path[i]][path[i+1]]["capacity"], flows_to_send[index_p], "fail XXXXXXXX")
 					# return 0, probing_messages, 0
 				else: 
 					# update channel states
