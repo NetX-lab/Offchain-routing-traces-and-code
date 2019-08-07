@@ -22,6 +22,7 @@ The traces are in [sim/traces](sim/traces). It has two parts for both networks:
 
 * Testbed code: check README.md in [testbed](testbed)
 * Simulation code: check README.md in [sim](sim)
+* Python dependencies: Python 3, and see `requirements.txt`
 
 ## Reference
 

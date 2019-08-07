@@ -4,8 +4,11 @@ import sys
 matplotlib.rcParams['axes.linewidth'] = 0.75
 
 trace = sys.argv[1]
-
 typ = sys.argv[2]
+
+assert(trace in ["ripple", "lightning"])
+assert(typ in ["ratio", "volume"])
+
 
 num_flows = 2000
 
@@ -73,7 +76,7 @@ if typ == 'ratio':
 grid(color='grey', linestyle=':', linewidth=0.5)
 
 for i in range(3):
-	print [a/b for a, b in zip(volumes[3], volumes[i])] 
+	print([a/b for a, b in zip(volumes[3], volumes[i])]) 
 
 
 if typ == 'volume':
