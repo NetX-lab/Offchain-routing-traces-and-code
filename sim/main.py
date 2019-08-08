@@ -336,7 +336,7 @@ def main():
 	nflows = int(sys.argv[2]) # int 
 	exp = sys.argv[3] # threshold cache general 
 
-	nruns = 1 # test
+	nruns = 5 # test
 
 
 	# #################### run experiment to evaluate flash with different thresholds ####################

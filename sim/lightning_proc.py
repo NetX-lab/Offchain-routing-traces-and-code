@@ -69,27 +69,29 @@ def setup():
 		if i in random_edges: 
 			G[e[0]][e[1]]['cost'] = G[e[0]][e[1]]['cost']*10
 
-	# # print some stats
-	# # (average channel cap and number of edges are not current anymore,
-	# # after pruning of nodes has taken place ...)
-	# print("number of nodes", len(G))
-	# print('average channel cap', float(sum(listC))/len(listC))
-	# print('num of edges', len(listC))
-	# sorted_var = np.sort(listC)
-	# print('medium channel capacity', stats.scoreatpercentile(sorted_var, 50))
 
-	# collect some data for stats printout later
-	listC = []
-	for e in G.edges(): 
-		listC.append(G[e[0]][e[1]]['capacity'])
-		listC.append(G[e[1]][e[0]]['capacity'])
-	listC_sorted = np.sort(listC)
-
-	# print stats
+	# print some stats
+	# (average channel cap and number of edges are not current anymore,
+	# after pruning of nodes has taken place ...)
 	print("number of nodes", len(G))
 	print('average channel cap', float(sum(listC))/len(listC))
 	print('num of edges', len(listC))
-	print('medium capacity', stats.scoreatpercentile(listC_sorted, 50))
+	listC_sorted = np.sort(listC)
+	print('medium channel capacity', stats.scoreatpercentile(listC_sorted, 50))
+
+	# # collect some data for stats printout later
+	# listC = []
+	# for e in G.edges():
+	# 	listC.append(G[e[0]][e[1]]['capacity'])
+	# 	listC.append(G[e[1]][e[0]]['capacity'])
+	# listC_sorted = np.sort(listC)
+
+	# # print stats
+	# print("number of nodes", len(G))
+	# print('average channel cap', float(sum(listC))/len(listC))
+	# print('num of edges', len(listC))
+	# print('medium capacity', stats.scoreatpercentile(listC_sorted, 50))
+
 
 	# load the transaction values that have been obtained from
 	# an analysis of the Bitcoin blockchain
