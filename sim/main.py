@@ -368,8 +368,6 @@ def main():
 	# run only Flash
 	# ALL_SCHEMES = ['flash']
 
-	ALL_SCHEMES = ['waterfilling', 'flash']
-
 	if exp == 'general':
 		nlandmarks = 3
 		percentage = 90
