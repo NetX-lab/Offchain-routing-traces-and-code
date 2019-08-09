@@ -12,12 +12,13 @@
 /src/parse_graph/n*.json
 /src/parse_graph/tr*.txt
 /src/parse_graph/pa*.txt
+/src/parse_graph/graph.txt
 /src/server/*.json
 /src/server/n*.json
 /src/server/tr*.txt
 /src/server/pa*.txt
+/src/server/graph.txt
 
 # runtime files
 /src/server/pid
 /src/server/lll*.log
-/src/server/graph.txt
