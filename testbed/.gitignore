@@ -1,0 +1,4 @@
+/parse_graph
+/server
+!/src/parse_graph/parse_graph
+!/src/server/server
