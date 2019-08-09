@@ -1202,7 +1202,7 @@ func main() {
 	go handle_sig()
 	var err error = nil
 	if 8 > len(os.Args) {
-		log.Println("usage: ./server [conf_filename] [neig_conf_filename] [graph_filename] [trans_filename] [path_filename] [#algo] [#ind]")
+		log.Println("Usage: ./server <\\${n}.json> <n\\${n}.json> <graph file> <tr\\${n}.txt> <pa\\${n}.txt> <algo> <node id>")
 		os.Exit(-1)
 	}
 	// get the algo

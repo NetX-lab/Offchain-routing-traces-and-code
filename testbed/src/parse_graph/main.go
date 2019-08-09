@@ -50,7 +50,7 @@ func main() {
 	neig_cgf = make(map[int][]Comm.NodeInfo)
 
 	if 6 != len(os.Args) {
-		fmt.Println("usage: ./parse_graph g_filename tr_filename path_filename [node_ip] #node")
+		fmt.Println("usage: ./parse_graph <graph file> <transactions file> <paths file> <node ip> <number of nodes>")
 		os.Exit(-1)
 	}
 
