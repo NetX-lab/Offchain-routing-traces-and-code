@@ -1,7 +1,8 @@
+SETGOPATH=GOPATH=$(shell pwd)
+
 build-go-scripts:
-	GOPATH=$(shell pwd)
-	go build server
-	go build parse_graph
+	$(SETGOPATH) go build server
+	$(SETGOPATH) go build parse_graph
 
 do-generate-trace:
 	cd src/gen_trace; python test.py
