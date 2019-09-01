@@ -7,8 +7,8 @@ import sys
 import time
 
 def rank (cap, maxSet, secMaxSet): 
-  largest = -sys.maxint-1
-  secLargest = -sys.maxint-1
+  largest = -sys.maxsize-1
+  secLargest = -sys.maxsize-1
 
   for i in range(len(cap)):
     if (cap[i] > largest): 
@@ -23,7 +23,7 @@ def rank (cap, maxSet, secMaxSet):
     if (cap[i] == secLargest):
       secMaxSet.append(i)
 
-  if (secLargest == -sys.maxint-1):
+  if (secLargest == -sys.maxsize-1):
     return 0; 
 
   return largest-secLargest

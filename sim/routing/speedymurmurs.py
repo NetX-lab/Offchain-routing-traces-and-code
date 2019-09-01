@@ -163,7 +163,7 @@ def routePay(G, edges, landmarks, coordinate, parent, src,dst, payment_size):
 
 		for l in range(L):
 			if len(path[l]) > max_path_length: 
-       				max_path_length = len(path[l])
+				max_path_length = len(path[l])
 			for e in path[l]:
 				u = e[0]
 				v = e[1]
@@ -201,15 +201,16 @@ def routing(G, payments, L=2): # input graph and number of landmarks
 	total_probing_messages = 0
 	total_max_path_length = 0
 	transaction_fees = 0
-  	for payment in payments:
-  		src = payment[0]
+	for payment in payments:
+		src = payment[0]
 		dst = payment[1]
 		payment_size = payment[2]
-  		G, delivered, fee, coordinate, parent, probing_messages, max_path_length = routePay(G, edges, landmarks, coordinate, parent, src,dst, payment_size)
-  		total_probing_messages += probing_messages
-  		if not delivered < payment[2]:
-  			total_max_path_length += max_path_length
-  			num_delivered += 1
-  		throughput += delivered
-  		transaction_fees += fee
-  	return throughput, transaction_fees/throughput, num_delivered, total_probing_messages, total_max_path_length
+		G, delivered, fee, coordinate, parent, probing_messages, max_path_length = routePay(G, edges, landmarks, coordinate, parent, src,dst, payment_size)
+		total_probing_messages += probing_messages
+		if not delivered < payment[2]:
+			total_max_path_length += max_path_length
+			num_delivered += 1
+		throughput += delivered
+		transaction_fees += fee
+
+	return throughput, transaction_fees/throughput, num_delivered, total_probing_messages, total_max_path_length

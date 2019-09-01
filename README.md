@@ -1,4 +1,4 @@
-# About the repo
+# Traces and code for offchain routing
 
 The repo contains the topology and transaction traces of some offchain networks we collect. They are used to evaluate [Flash](https://arxiv.org/abs/1902.05260), a dynamic routing solution we develop for offchain networks. 
 
@@ -22,6 +22,11 @@ The traces are in [sim/traces](sim/traces). It has two parts for both networks:
 
 * Testbed code: check README.md in [testbed](testbed)
 * Simulation code: check README.md in [sim](sim)
+
+### Dependencies
+
+* Testbed code: Golang, see `Makefile`
+* Simulation code: Python dependencies: Python >=3.6, and see `requirements.txt`
 
 ## Reference
 

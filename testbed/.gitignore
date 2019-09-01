@@ -1,0 +1,24 @@
+# executables (see Makefile target "build-go-scripts")
+/parse_graph
+/server
+!/src/parse_graph/parse_graph
+!/src/server/server
+
+# traces (see Makefile target "do-generate-trace")
+/src/gen_trace/*.txt
+
+# config files (see Makefile target "do-parse-graph")
+/src/parse_graph/*.json
+/src/parse_graph/n*.json
+/src/parse_graph/tr*.txt
+/src/parse_graph/pa*.txt
+/src/parse_graph/graph.txt
+/src/server/*.json
+/src/server/n*.json
+/src/server/tr*.txt
+/src/server/pa*.txt
+/src/server/graph.txt
+
+# runtime files
+/src/server/pid
+/src/server/lll*.log
