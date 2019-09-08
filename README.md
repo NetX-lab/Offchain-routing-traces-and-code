@@ -30,4 +30,6 @@ The traces are in [sim/traces](sim/traces). It has two parts for both networks:
 
 ## Reference
 
-Flash: Efficient Dynamic Routing for Offchain Networks. Peng Wang, Hong Xu, Xin Jin, Tao Wang.  ACM CoNEXT 2019. [https://arxiv.org/abs/1902.05260](https://arxiv.org/abs/1902.05260).
+Flash: Efficient Dynamic Routing for Offchain Networks. Peng Wang, Hong Xu, Xin Jin, Tao Wang.  
+ACM CoNEXT 2019. 
+[https://arxiv.org/abs/1902.05260](https://arxiv.org/abs/1902.05260).
