@@ -1,6 +1,6 @@
 # Traces and code for offchain routing
 
-The repo contains the topology and transaction traces of some offchain networks we collect. They are used to evaluate [Flash](https://arxiv.org/abs/1902.05260), a dynamic routing solution we develop for offchain networks. 
+The repo contains the topology and transaction traces of some offchain networks we collect. They are used to evaluate [Flash](https://arxiv.org/abs/1902.05260), a dynamic routing solution we develop for offchain networks. Flash is accepted to ACM CoNEXT 2019.
 
 The repo also contains our code for both simulation and testbed implementation of Flash, as well as a set of state-of-the-art routing algorithms.
 
@@ -30,4 +30,6 @@ The traces are in [sim/traces](sim/traces). It has two parts for both networks:
 
 ## Reference
 
-Flash: Efficient Dynamic Routing for Offchain Networks. Peng Wang, Hong Xu, Xin Jin, Tao Wang. [https://arxiv.org/abs/1902.05260](https://arxiv.org/abs/1902.05260). 2019
+Flash: Efficient Dynamic Routing for Offchain Networks. Peng Wang, Hong Xu, Xin Jin, Tao Wang.  
+ACM CoNEXT 2019.  
+[https://arxiv.org/abs/1902.05260](https://arxiv.org/abs/1902.05260).
