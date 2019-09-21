@@ -1,0 +1,18 @@
+{
+    "host": "10.37.2.12",
+    "username": "peng",
+    "password": "peng123",
+    "remotePath": "/home/peng/conext-artifact",
+    "protocol": "sftp",
+    "port": 22,
+    "fileNameEncoding": "utf8",
+    "autoUpload": true,
+    "autoDelete": false,
+    "autoDownload": false,
+    "ignore": [
+        ".git",
+        "/.vscode",
+        "/reproduce/",
+        "/sim/traces/lightning/BitcoinVal.txt"
+    ]
+}

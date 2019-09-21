@@ -280,11 +280,10 @@ def run_general(scheme, trace, nflows, nruns, nlandmarks, scale_list, percentage
 		msg_list = []
 		hit_list = []
 
+		print('Start run simulation for trace', trace, '- scheme', scheme, '- scale factor', scale_factor)
 		# payments to send
 		for seed in range(nruns):
 			random.seed(seed)
-			print('Start run simulation. Run', seed, ' trace ', trace, ' scheme ', scheme)
-
 			payments = generate_payments(trace, seed, nflows, trans, G)
 
 			if scheme == 'sp':
@@ -313,7 +312,7 @@ def run_general(scheme, trace, nflows, nruns, nlandmarks, scale_list, percentage
 		if scheme == 'flash': 
 			res_hit.append(sum(hit_list)/nruns)
 
-		print(scheme, res_cost)
+	print(scheme, res_cost)
 
 
 	# log results to file
@@ -364,15 +363,17 @@ def main():
 	# Figures 6+7 of arxiv:1902.05260v2
 
 	# run on all schemes
-	ALL_SCHEMES = VALID_SCHEMES
+	# ALL_SCHEMES = VALID_SCHEMES
 	# run only Flash
-	# ALL_SCHEMES = ['flash']
+	ALL_SCHEMES = ['waterfilling', 'flash']
 
+	# For Fig. 6, num of transactions is 2000 
+	# For Fig. 7, capacity scale factor is 20
 	if exp == 'general':
 		nlandmarks = 3
 		percentage = 90
 		num_max_cache = 4
-		scale_list = [1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+		scale_list = [1, 10, 20, 30, 40, 50, 60]
 		for scheme in ALL_SCHEMES:
 			run_general(scheme, trace, nflows, nruns, nlandmarks, scale_list, percentage, num_max_cache)
 

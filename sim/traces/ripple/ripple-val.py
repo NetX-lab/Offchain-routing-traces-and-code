@@ -44,13 +44,13 @@ x_points.append(stats.scoreatpercentile(sorted_var, 99))
 x_points.append(stats.scoreatpercentile(sorted_var, 99.9))
 x_points.append(stats.scoreatpercentile(sorted_var, 99.99))
 
-print 'median capacity', stats.scoreatpercentile(sorted_var, 50), len(sorted_var)
+print('median capacity', stats.scoreatpercentile(sorted_var, 50), len(sorted_var))
 
 # y_points = [0, 0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.96, 0.97, 0.98, 0.99, 0.999, 1]
 y_points = [0.0001, 0.005, 0.01, 0.02, 0.04, 0.06, 0.08, 0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.96, 0.97, 0.98, 0.99, 0.999, 0.9999]
 
 
-print x_points, y_points
+print(x_points, y_points)
 font = {'family' : 'sans-serif',
         'weight' : 'normal',
         'size'   : 14}
