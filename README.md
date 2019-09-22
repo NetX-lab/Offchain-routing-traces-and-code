@@ -26,7 +26,7 @@ The traces are in [sim/traces](sim/traces). It has two parts for two offchain ne
 ### Dependencies
 
 * Testbed code: written in Golang, see [Makefile](testbed/Makefile)
-* Simulation code: requires Python >=3.6, and see `requirements.txt`
+* Simulation code: requires Python >=3.6, and see [requirements.txt](requirements.txt)
 
 ## Reference
 
