@@ -26,12 +26,12 @@ pip install --upgrade pip
 ``` bash
 pip install -r requirements.txt 
 ```
-* Take ripple trace for example, to reproduce results for Fig. 3, run
+* Take ripple trace for example, to reproduce results for Fig. 3, in [traces/ripple](traces/ripple) run
 
 ```bash
 python ripple-val.py 
 ```
-To reproduce results for Fig. 4, run 
+To reproduce results for Fig. 4, in [traces/ripple](traces/ripple) run 
 
 ```bash
 python parse-ripple.py
