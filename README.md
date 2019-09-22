@@ -1,14 +1,14 @@
 # Traces and code for offchain routing
 
-The repo contains the topology and transaction traces of some offchain networks we collect. They are used to evaluate [Flash](https://arxiv.org/abs/1902.05260), a dynamic routing solution we develop for offchain networks. Flash is accepted to ACM CoNEXT 2019.
+This repo contains topology and transaction traces of some offchain networks we collect. They are used to evaluate [Flash](https://arxiv.org/abs/1902.05260), a dynamic routing solution we develop for offchain networks. Flash is accepted to ACM CoNEXT 2019.
 
-The repo also contains our code for both simulation and testbed implementation of Flash, as well as a set of state-of-the-art routing algorithms.
+This repo also contains our code for both simulation and testbed implementation of Flash, as well as a set of state-of-the-art offchain routing algorithms.
 
-We hope they would be useful for people who work on offchain networks.
+We hope this information would be useful for people who work on offchain networks.
 
 ## About the traces
 
-The traces are in [sim/traces](sim/traces). It has two parts for both networks:
+The traces are in [sim/traces](sim/traces). It has two parts for two offchain networks:
 
 ### Topology
 * Ripple Network (1,870 nodes and 17,416 edges) 
@@ -25,8 +25,8 @@ The traces are in [sim/traces](sim/traces). It has two parts for both networks:
 
 ### Dependencies
 
-* Testbed code: Golang, see `Makefile`
-* Simulation code: Python dependencies: Python >=3.6, and see `requirements.txt`
+* Testbed code: written in Golang, see `Makefile`
+* Simulation code: requires Python >=3.6, and see `requirements.txt`
 
 ## Reference
 
