@@ -365,7 +365,7 @@ def main():
 	# run on all schemes
 	# ALL_SCHEMES = VALID_SCHEMES
 	# run only Flash
-	ALL_SCHEMES = ['waterfilling', 'flash']
+	ALL_SCHEMES = ['sp', 'speedymurmurs', 'waterfilling', 'flash']
 
 	# For Fig. 6, num of transactions is 2000 
 	# For Fig. 7, capacity scale factor is 20
