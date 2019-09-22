@@ -26,7 +26,7 @@ pip install --upgrade pip
 ``` bash
 pip install -r requirements.txt 
 ```
-* Take ripple trace for example, to reproduce results for Fig. 3, in [traces/ripple](traces/ripple) run
+* Take ripple trace for example, to reproduce results for Fig. 3, first download trace file from https://www.dropbox.com/s/yj2jvx6r8e9jad4/transactions-in-USD-jan-2013-aug-2016.txt?dl=0 and put it in [traces/ripple](traces/ripple). Then run
 
 ```bash
 python ripple-val.py 
