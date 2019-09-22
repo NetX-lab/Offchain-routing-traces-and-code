@@ -16,6 +16,7 @@ $ python main.py <trace> <nflows> <exp>
 * Create a virtual environment
 
 ```bash
+# check and make sure Python >=3.6
 virtualenv --python python3 "reproduce" 
 source "reproduce/bin/activate"
 pip install --upgrade pip
