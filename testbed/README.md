@@ -1,11 +1,24 @@
 ## Testbed
-Steps to reproduce testbed experiments:
+Steps to reproduce testbed experiments. Refer to 'MAKEFILE' to run experiments:
 
+0. build 
 1. generate nodes topology and requests according to real-world trace (folder [src/gen_trace](https://github.com/NetX-lab/Offchain-routing-traces-and-code/tree/master/testbed/src/gen_trace))
 2. parse the trace files from step 1 to generate configuration file for each node (folder [src/parse_graph](https://github.com/NetX-lab/Offchain-routing-traces-and-code/tree/master/testbed/src/parse_graph)
 3. emulate each node (i.e. unique ip/port pair) and start the experiment (folder [src/comm](https://github.com/NetX-lab/Offchain-routing-traces-and-code/tree/master/testbed/src/comm) and [src/server](https://github.com/NetX-lab/Offchain-routing-traces-and-code/tree/master/testbed/src/server))
 
 Note that we use `golang 1.11` to write our codes. You should `go build` in `[src/parse_graph]` and `[src/server]` folders to get the excutables.
+
+### 0. Build 
+First, set the `GOPATH` environment variable. 
+```bash
+SETGOPATH=GOPATH=$(shell pwd)
+```
+
+Then, build the excutables. 
+```bash
+	$(SETGOPATH) go build server
+	$(SETGOPATH) go build parse_graph
+```
 
 ### 1. Generate trace
 Using `python test.py` will generate 3 files (i.e. `graph.txt`, `payments.txt` and `path.txt`). 
