@@ -16,8 +16,8 @@ SETGOPATH=GOPATH=$(shell pwd)
 
 Then, build the excutables. 
 ```bash
-	$(SETGOPATH) go build server
-	$(SETGOPATH) go build parse_graph
+$(SETGOPATH) go build server
+$(SETGOPATH) go build parse_graph
 ```
 
 ### 1. Generate trace
